@@ -3,5 +3,6 @@ localtileserver
 ipysheet
 mss
 osmnx
+geopy
 #rasterio
 #geopandas
