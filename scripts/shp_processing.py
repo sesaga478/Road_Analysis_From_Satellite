@@ -23,16 +23,16 @@ def shp_buf(buffer,shp_in,shp_out):
 #Take a bigger shapefile and fit it based on geotif image
 def shp_img_fit(shp_in,img_in,shp_out):
     with rasterio.open(img_in) as src:
-    shapefile = gpd.read_file(shp_in)
-    shapefile = shapefile.to_crs(CRS(src.crs))
-    shapefile_extent = shapefile.total_bounds
-    geotiff_extent = [src.bounds.left, src.bounds.bottom, src.bounds.right, src.bounds.top]
-    intersection_geometry = box(*geotiff_extent).intersection(box(*shapefile_extent))
-    if not intersection_geometry.is_empty:
-        clipped_shapefile = shapefile.intersection(intersection_geometry)
-        # Comprobar si el shapefile recortado tiene geometría válida
-        if not clipped_shapefile.empty:
-            shapefile['geometry']=clipped_shapefile
-            shapefile=shapefile[~shapefile['geometry'].is_empty]
-            display(shapefile.head(2))
-            shapefile.to_file(shp_out)
+        shapefile = gpd.read_file(shp_in)
+        shapefile = shapefile.to_crs(CRS(src.crs))
+        shapefile_extent = shapefile.total_bounds
+        geotiff_extent = [src.bounds.left, src.bounds.bottom, src.bounds.right, src.bounds.top]
+        intersection_geometry = box(*geotiff_extent).intersection(box(*shapefile_extent))
+        if not intersection_geometry.is_empty:
+            clipped_shapefile = shapefile.intersection(intersection_geometry)
+            # Comprobar si el shapefile recortado tiene geometría válida
+            if not clipped_shapefile.empty:
+                shapefile['geometry']=clipped_shapefile
+                shapefile=shapefile[~shapefile['geometry'].is_empty]
+                display(shapefile.head(2))
+                shapefile.to_file(shp_out)
