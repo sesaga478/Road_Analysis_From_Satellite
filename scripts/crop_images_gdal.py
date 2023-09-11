@@ -41,7 +41,7 @@ def crop(ORI_PATH="./data/big_img/",SIZE=100,CROP_PATH='crop_images/images', EXT
             for i in range(0, img_height, height):
                 for j in range(0, img_width, width):
                     try:
-                        imagen_test_name = os.path.join(fol_crop,im.split('/')[-1].replace("."+EXT, '') + '_{}_{}_{}_{}_{}_1_AnalyticMS_rgb_scaled.{}'.format(i, j, k, height, width,EXT))
+                        imagen_test_name = os.path.join(fol_crop,im.split('/')[-1].replace("."+EXT, '') + '_{}_{}_{}_{}_{}_1.{}'.format(i, j, k, height, width,EXT))
                         #print(imagen_test_name)
                         if not os.path.exists(imagen_test_name):
                             gdal.Translate(imagen_test_name, im,options='-srcwin {} {} {} {}'.format(j, i, width, height))
