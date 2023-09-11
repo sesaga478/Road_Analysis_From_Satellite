@@ -4,5 +4,7 @@ ipysheet
 mss
 osmnx
 geopy
+segment-geospatial
+groundingdino-py
 #rasterio
 #geopandas
