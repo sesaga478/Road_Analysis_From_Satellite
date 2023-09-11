@@ -51,7 +51,7 @@ def crop(ORI_PATH="./data/big_img/",SIZE=100,CROP_PATH='crop_images/images', EXT
 
 
     image_files = os.listdir(fol_crop)
-    len(image_files)
+    print(len(image_files))
     for image_file in image_files:
         #print(image_file)
         try:
@@ -63,6 +63,6 @@ def crop(ORI_PATH="./data/big_img/",SIZE=100,CROP_PATH='crop_images/images', EXT
                 
         except:
             pass
-    len(image_files)
+    print(len(image_files))
 
 
