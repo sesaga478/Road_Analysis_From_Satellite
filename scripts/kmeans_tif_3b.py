@@ -26,9 +26,9 @@ def kmeans_tif_3b(tif_in,clusters,kmeans_out):
   print(np.round(percentage_pixels,decimals=2))
 
   plt.imshow(np.reshape(labels, (rows, cols)), cmap="viridis")
-  plt.savefig(tif.replace('.tif','.svg'))
+  plt.savefig(tif_in.replace('.tif','.svg'))
   plt.colorbar()
-  plt.title(tif.split('\\')[-1].split('.')[0])
+  plt.title(tif_in.split('/')[-1].split('.')[0])
   plt.show()
 
 
@@ -36,7 +36,7 @@ def kmeans_tif_3b(tif_in,clusters,kmeans_out):
 
   #EXPORTAR 1 RASTER
   driver = gdal.GetDriverByName("GTiff")
-  kmeans_out = tif.replace('.tif','_kmeans.tif')
+  kmeans_out = tif_in.replace('.tif','_kmeans.tif')
   output_ds = driver.Create(kmeans_out, cols, rows, 1, gdal.GDT_Int32)
   output_band = output_ds.GetRasterBand(1)
   output_band.WriteArray(results)
