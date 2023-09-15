@@ -36,7 +36,7 @@ def kmeans_tif_3b(tif_in,clusters,kmeans_out):
 
   #EXPORTAR 1 RASTER
   driver = gdal.GetDriverByName("GTiff")
-  kmeans_out = tif_in.replace('.tif','_kmeans.tif')
+  #kmeans_out = tif_in.replace('.tif','_kmeans.tif')
   output_ds = driver.Create(kmeans_out, cols, rows, 1, gdal.GDT_Int32)
   output_band = output_ds.GetRasterBand(1)
   output_band.WriteArray(results)
