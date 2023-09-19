@@ -8,3 +8,4 @@ segment-geospatial
 groundingdino-py
 #rasterio
 #geopandas
+astral
