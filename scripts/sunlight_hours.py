@@ -18,7 +18,7 @@ def sunlight_hours(lat,lon,start,end,excel_out):
   for day in range(delta.days + 1):
       t_start = time.time()
       this_date = str((start+datetime.timedelta(days=day)).date())
-      print(this_date)
+      #print(this_date)
       params = {'lat':lat,'lng':lon,'date':this_date}
       #tz = pytz.timezone('Asia/Kolkata')
       l = LocationInfo()
@@ -26,7 +26,7 @@ def sunlight_hours(lat,lon,start,end,excel_out):
       l.region = 'region'
       l.latitude = lat
       l.longitude = lon
-      print(l.observer)
+      #print(l.observer)
       s = sun.sun(l.observer, date=start+datetime.timedelta(days=day)#,tzinfo=tz
                   )
       data['sunrise'].append(s["sunrise"].time().strftime('%H:%M:%S'))
