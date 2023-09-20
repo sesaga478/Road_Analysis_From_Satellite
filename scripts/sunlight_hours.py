@@ -41,6 +41,6 @@ def sunlight_hours(lat,lon,start,end,excel_out):
   df['dif_sec'] = (pd.to_timedelta(df['noon'].astype(str)) -
                                   pd.to_timedelta(df['sunrise'].astype(str))).dt.total_seconds()
   df['sunlight_hours'] = (df['dif_sec']/60)/60
-  sunlight_hours= (df['dif_sec']/60)/60
+  sunlight_hours_sum= np.sum((df['dif_sec']/60)/60)
   df.to_excel(excel_out)
-  return sunlight_hours
+  return sunlight_hours_sum
