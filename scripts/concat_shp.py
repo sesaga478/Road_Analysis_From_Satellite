@@ -1,5 +1,6 @@
 import geopandas as gpd
 import os,glob
+import pandas as pd
 
 def concat_shp(folder,end,out_shp,out_excel):
     # Obtener la lista de archivos en la carpeta con la extensión .shp
