@@ -19,7 +19,7 @@ def concat_shp(folder,end,out_shp,out_excel):
 
         # Transformar el CRS al CRS objetivo
         gdf = gdf.to_crs(crs_objetivo)
-
+        gdf['image']=archivo
         gdfs.append(gdf)
 
     # Concatenar los GeoDataFrames en uno solo
