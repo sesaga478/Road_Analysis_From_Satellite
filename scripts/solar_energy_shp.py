@@ -48,7 +48,7 @@ def sunlight_hours(lat,lon,start,end):
   return sunlight_hours_sum
 
 
-def solar_energy_shp(shp_in,shp_out,start,end,excel_out,panel_size,area_disp,factor_dim):
+def solar_energy_shp(shp_in,shp_out,start,end,excel_out,panel_size,area_disp,factor_dim,panel_pot):
   gdf = gpd.read_file(shp_in)
   # Get the CRS (coordinate reference system) of the shapefile
   crs = gdf.crs
@@ -70,9 +70,9 @@ def solar_energy_shp(shp_in,shp_out,start,end,excel_out,panel_size,area_disp,fac
 
   gdf['n_paneles'] = (gdf['area']*area_disp)/panel_size#Asumiendo paneles de 2x2
 
-  gdf['horas_acum'] = gdf.apply(lambda row: sunlight_hours(row['latitude'], row['longitude'],start,end,excel_out), axis=1)
+  gdf['horas_acum'] = gdf.apply(lambda row: sunlight_hours(row['latitude'], row['longitude'],start,end), axis=1)
 
-  gdf['Energia_acum'] = 0.4*gdf['horas_acum']*factor_dim*gdf['n_paneles']
+  gdf['Energia_acum'] = panel_pot*gdf['horas_acum']*factor_dim*gdf['n_paneles']
   gdf['Energia_diaria'] = gdf['Energia_acum']/(delta.days+1)
   gdf['Energia_anual']= gdf['Energia_diaria']*365
 
