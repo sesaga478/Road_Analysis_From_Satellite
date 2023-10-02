@@ -70,7 +70,7 @@ def solar_energy_shp(shp_in,shp_out,start,end,excel_out,panel_size,area_disp,fac
 
   gdf['n_paneles'] = (gdf['area']*area_disp)/panel_size#Asumiendo paneles de 2x2
 
-  gdf['horas_acum'] = gdf.apply(lambda row: sunh.sunlight_hours(row['latitude'], row['longitude'],start,end,excel_out), axis=1)
+  gdf['horas_acum'] = gdf.apply(lambda row: sunlight_hours(row['latitude'], row['longitude'],start,end,excel_out), axis=1)
 
   gdf['Energia_acum'] = 0.4*gdf['horas_acum']*factor_dim*gdf['n_paneles']
   gdf['Energia_diaria'] = gdf['Energia_acum']/(delta.days+1)
