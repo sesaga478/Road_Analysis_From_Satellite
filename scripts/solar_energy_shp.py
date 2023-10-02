@@ -6,6 +6,7 @@ import time
 from astral import LocationInfo
 from astral import sun
 import pytz
+import geopandas as gpd
 
 
 def sunlight_hours(lat,lon,start,end):
