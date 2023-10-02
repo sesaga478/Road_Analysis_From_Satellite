@@ -79,4 +79,4 @@ def solar_energy_shp(shp_in,shp_out,start,end,excel_out,panel_size,area_disp,fac
   gdf['Energia_anual']= gdf['Energia_diaria']*365
 
   gdf.to_file(shp_out)
-  gdf_to.to_excel(out_excel)
+  gdf.to_excel(out_excel)
