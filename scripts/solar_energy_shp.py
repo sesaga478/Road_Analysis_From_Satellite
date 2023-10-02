@@ -72,6 +72,8 @@ def solar_energy_shp(shp_in,shp_out,start,end,excel_out,panel_size,area_disp,fac
 
   gdf['horas_acum'] = gdf.apply(lambda row: sunlight_hours(row['latitude'], row['longitude'],start,end), axis=1)
 
+  delta=end-start
+  
   gdf['Energia_acum'] = panel_pot*gdf['horas_acum']*factor_dim*gdf['n_paneles']
   gdf['Energia_diaria'] = gdf['Energia_acum']/(delta.days+1)
   gdf['Energia_anual']= gdf['Energia_diaria']*365
