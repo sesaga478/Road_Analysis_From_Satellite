@@ -1,6 +1,6 @@
 import os,fnmatch
 
-def encontrar_ultimo_archivo(path, palabra_clave):
+def ultimo_archivo(path, palabra_clave):
     archivos = []
 
     # Recorre el directorio y subdirectorios
