@@ -1,7 +1,7 @@
 import os
 import glob
 
-def ultimo_archivo(directorio):
+def ultimo_archivo(directorio,palabra_clave):
     # Comprueba si el directorio proporcionado existe
     if not os.path.exists(directorio):
         print(f"El directorio {directorio} no existe.")
@@ -11,7 +11,7 @@ def ultimo_archivo(directorio):
     ultima_modificacion = 0
 
     # Busca todos los archivos .tif en el directorio y subdirectorios
-    archivos_tif = glob.glob(directorio + '/**/*.tif', recursive=True)
+    archivos_tif = glob.glob(directorio + palabra_clave, recursive=True)
 
     # Encuentra el archivo .tif más recientemente modificado
     for archivo in archivos_tif:
