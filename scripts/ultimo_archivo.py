@@ -11,7 +11,7 @@ def ultimo_archivo(directorio,palabra_clave):
     ultima_modificacion = 0
 
     # Busca todos los archivos .tif en el directorio y subdirectorios
-    archivos_tif = glob.glob(directorio + palabra_clave, recursive=True)
+    archivos_tif = glob.glob(directorio + '/**/*'+ palabra_clave, recursive=True)
 
     # Encuentra el archivo .tif más recientemente modificado
     for archivo in archivos_tif:
